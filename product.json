@@ -1,0 +1,10 @@
+{
+ "slug": "opening-cleans",
+ "name": "Opening Cleans",
+ "price_usd": 5,
+ "title": "Opening Cleans",
+ "desc": "Minneapolis offices, clinics, gyms, daycares and shops at final inspection, with the contractor on each: the post-construction clean and the cleaning contract before anyone else is hired.",
+ "fonts": "family=Instrument+Serif&family=Inter+Tight:wght@400;500;600",
+ "light": "--bg:#f3f6f6;--panel:#e7eded;--ink:#122224;--ink2:#2f4245;--muted:#5d6f72;--rule:#cddadb;--accent:#0f6e74;--onaccent:#f3f6f6;--hot:#d1612f;--mid:#9aa8aa;--c1:#0f6e74;--c2:#c2410c;--c3:#7c3aed;--c4:#b8860b;--c5:#be185d;--c6:#4d7c0f;--ghost:#c6d2d3;--tagbg:#dfe7e8;--tagfg:#3c5154;--hotbg:#f6dccd;--hotfg:#923a12;--display:\"Instrument Serif\",Georgia,serif;--body:\"Inter Tight\",system-ui,sans-serif;--h1w:400;",
+ "dark": "--bg:#0f1617;--panel:#162022;--ink:#e3eeee;--ink2:#bccdcf;--muted:#8a9fa2;--rule:#26373a;--accent:#5cc7cd;--onaccent:#0f1617;--hot:#f08a5c;--mid:#6b7e81;--c1:#5cc7cd;--c2:#f08a5c;--c3:#b69cf6;--c4:#e2b95a;--c5:#f07aa9;--c6:#a3d061;--ghost:#2a3a3d;--tagbg:#1f2c2e;--tagfg:#acc0c2;--hotbg:#45271a;--hotfg:#f7b393;"
+}
