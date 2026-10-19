@@ -45,7 +45,7 @@ publishing permits on 2025-06-30.
 
 ## The paywall
 
-Same as unit-turns-mpls and buying-window. `site/` ships only the free slice;
+Same as unit-turns-mpls and buying-window. `site/public/` ships only the free slice;
 `private/bundle/full.json.gz` is uploaded as `api/_full/` and read only by `/api/data`
 (401 without a password, 402 unpaid). `POST /api/checkout` is Stripe embedded Checkout
 at $5 and mints the password; `/api/stripe-webhook` emails it (Mailgun) and notifies
@@ -62,7 +62,7 @@ python3 -m pytest -q tests
 VERCEL_TOKEN=... python3 scripts/deploy.py
 ```
 
-`site/index.html` is generated from `kit/template.html`.
+`site/public/index.html` is generated from `kit/template.html`.
 
 ## Licence
 

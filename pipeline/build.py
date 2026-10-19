@@ -10,10 +10,12 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "kit"))
-from publish import publish  # noqa: E402
+from publish import esc, publish  # noqa: E402
 
 PRODUCT = json.loads((ROOT / "product.json").read_text())
-TODAY = dt.date.today()
+# The page says "pulled <date>": the day pull.py wrote the cache, not the day this script ran,
+# so a rebuild never moves the 60-day window or the "issued since" month off the data.
+TODAY = dt.date.fromtimestamp((ROOT / "pipeline/cache/permits.json").stat().st_mtime)
 JUST_DAYS = 60  # "just finished" = closed in the last 60 days: the space is opening or open
 D = lambda x: dt.datetime.fromtimestamp(x / 1000, dt.timezone.utc).date() if x else None
 
@@ -110,7 +112,7 @@ for x in json.loads((ROOT / "pipeline/cache/permits.json").read_text()):
         "m": [k, x["Neighborhoods_Desc"] or "", f"Permit {issued:%b %-d, %Y}", f"Finished {done:%b %-d}" if st == "Just finished" and done else "", f"Permit fee ${fee:,}"],
         "lat": round(x["Latitude"], 5), "lon": round(x["Longitude"], 5),
         "k": {"newest": -int(issued.strftime("%Y%m%d")), "stage": STAGES.index(st), "size": -fee},
-        "c": (f"Contractor: <b>{gc}</b>" + (f" · {gca}" if gca else "")) if gc else "No contractor company named on the permit",
+        "c": (f"Contractor: <b>{esc(gc)}</b>" + (f" · {esc(gca)}" if gca else "")) if gc else "No contractor company named on the permit",
         "csv": [[st, k, addr, x["Neighborhoods_Desc"] or "", w, gc, gca, issued.isoformat(), done.isoformat() if done and st == "Just finished" else "", fee, x["permitNumber"]]],
         "_issued": issued,
     })
